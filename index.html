@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grade Calculator</title>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f1f0f0;
+      text-align: center;
+      margin: 50px;
+    }
+
+    h1 {
+      color: #3498db;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #424a50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  // Function to take user input
+  function takeUserInput() {
+    // Using prompt to get input from the user
+    const userInput = prompt("Enter obtained marks:");
+    // Parsing the input to convert it into a number
+    return parseFloat(userInput);
+  }
+
+  // Function to calculate percentage
+  function calculatePercentage(totalObtainedMarks) {
+    // Assuming total marks are 100
+    const totalMarks = 100;
+    const percentage = (totalObtainedMarks / totalMarks) * 100;
+    return percentage;
+  }
+
+  // Function to calculate grade based on percentage
+  function calculateGrade(percentage) {
+    if (percentage >= 90) {
+      return 'A';
+    } else if (percentage >= 80) {
+      return 'B';
+    } else if (percentage >= 70) {
+      return 'C';
+    } else if (percentage >= 60) {
+      return 'D';
+    } else {
+      return 'F';
+    }
+  }
+
+  // Function to call other functions in sequence
+  function calculateResult() {
+    // Call takeUserInput and save its value
+    const obtainedMarks = takeUserInput();
+
+    // Pass the obtained marks to calculatePercentage
+    const percentage = calculatePercentage(obtainedMarks);
+
+    // Pass the calculated percentage to calculateGrade
+    const grade = calculateGrade(percentage);
+
+    // Return the calculated grade
+    return grade;
+  }
+
+  // Call the calculateResult function, get its return value, and display on the screen
+  const result = calculateResult();
+  document.write("<h1>Your grade is: " + result + "</h1>");
+</script>
+
+</body>
+</html>
